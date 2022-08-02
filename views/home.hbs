@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Handle them Bars</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+  <figure class="image is-128x128">
+  <img src="img/logo.png" alt="logo?">
+  </figure>
+  <h1>Hello Bro, {{name}}</h1>
+  <div class="field">
+    	<form class="field" action="none" method="POST" name="bmiform">
+			<fieldset>
+			<legend>Height and Weight</legend>
+				<label for="pounds">Weight (pounds):</label>
+				<input type="text" name="pounds" id="pounds">
+				<br>
+				<label for="inches">Height (inches):</label>
+				<input type="text" name="inches" id="inches">
+				<br>
+				<button type="button" class="button is-primary is-focused" name="calculate" value="Calculate your BMI" onclick="calcBMI()">Calculate your BMI</button>
+			</fieldset>
+			<fieldset>
+			<legend>BMI</legend>
+				<label for="bmi" id="bmi_label"> Your calculated BMI is: </label>
+				<input type="text" name="bmi" id="bmi" readonly="readonly">
+			</fieldset>
+		</form>
+  </div>
+<script>
+  function calcBMI() {
+  var weight = document.bmiform.pounds.value, height = document.bmiform.inches.value;
+  document.bmiform.bmi.value = parseInt((weight * 703) / (height * height));
+} 
+</script>
+</body>
+</html>
